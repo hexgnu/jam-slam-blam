@@ -1,0 +1,54 @@
+\documentclass[12pt,oneside]{article}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{color}
+\begin{document}
+\title{Assignment 1: CS 63035-O01}
+\author{Matthew Kirk}
+
+\maketitle
+
+\section{Understanding Buffer Overflow}
+
+\subsection{Stack Buffer Overflow}
+
+To show a stack buffer overflow I have copied a strcpy program from Wikipedia (https://en.wikipedia.org/wiki/Stack\_buffer\_overflow). It does not check bounds so therefore is unsafe and vulnerable to a stack buffer overflow. 
+
+The program is:
+
+\begin{lstlisting}
+#include <string.h>
+
+void foo (char *bar)
+{
+   char  c[12];
+
+   strcpy(c, bar);  // no bounds checking
+}
+
+int main (int argc, char **argv)
+{
+   foo(argv[1]);
+}
+\end{lstlisting}
+
+As you can see it does no bounds checking and since strcpy doesn't either it is vulnerable. If the program gets input over 12 characters long then it flows over into the frame pointer and then finally into the return address.
+
+TODO: INSERT EXPORT. 
+
+In this graphic if you input "ABC...VWX" you will overflow the character array of 12 characters into the pointer for *bar. This will be 4 bytes wide assuming we're on a 32 bit architecture (otherwise it's 8 bytes), this then overflows to the current stack pointer (another 4 bytes), and then finally to the return address (4 bytes). A malicious attacker could utilize this to change the return address just by inputing an address in the last 4 bytes of our input string.
+
+\subsection{Heap Buffer Overflow}
+
+https://cwe.mitre.org/data/definitions/122.html
+
+\begin{lstlisting}
+#define BUFSIZE 256
+int main(int argc, char **argv) {
+  char *buf;
+  buf = (char *)malloc(sizeof(char)*BUFSIZE);
+  strcpy(buf, argv[1]);
+}
+\end{lstlisting}
+\end{document}
