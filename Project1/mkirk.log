@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.29)  19 SEP 2016 16:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.29)  20 SEP 2016 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -175,42 +175,69 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 10.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 10.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 19.
- (/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/omlcmr.fd
+
+Overfull \hbox (2.82796pt too wide) in paragraph at lines 16--17
+\OT1/cmr/m/n/12 To show a stack buffer over-flow I have copied a str-cpy pro-gr
+am from Wikipedia
+ []
+
+
+Overfull \hbox (16.73308pt too wide) in paragraph at lines 16--17
+\OT1/cmr/m/n/12 (https://en.wikipedia.org/wiki/Stack[]buffer[]overflow). It doe
+s not check bounds
+ []
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 21.
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 19.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 21.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 23.
 
 (/usr/local/texlive/2015basic/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
  [1
 
 {/usr/local/texlive/2015basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 ]
-(./mkirk.aux) ) 
+<./screenshot.png, id=15, 545.03625pt x 819.06pt>
+File: ./screenshot.png Graphic file (type png)
+ <use ./screenshot.png>
+Package pdftex.def Info: ./screenshot.png used on input line 89.
+(pdftex.def)             Requested size: 390.0pt x 586.07338pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 89--90
+[][] 
+ []
+
+[3]
+Overfull \vbox (37.57338pt too high) has occurred while \output is active []
+
+
+[4 <./screenshot.png>] (./mkirk.aux) ) 
 Here is how much of TeX's memory you used:
- 2768 strings out of 494501
- 41035 string characters out of 6167029
- 105688 words of memory out of 5000000
- 6041 multiletter control sequences out of 15000+600000
- 6678 words of font info for 24 fonts, out of 8000000 for 9000
+ 2776 strings out of 494501
+ 41157 string characters out of 6167029
+ 103688 words of memory out of 5000000
+ 6046 multiletter control sequences out of 15000+600000
+ 6847 words of font info for 25 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 38i,6n,32p,240b,1399s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb>
-Output written on mkirk.pdf (2 pages, 57000 bytes).
+ 38i,6n,32p,484b,1086s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015basic/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015basic/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015basic/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015bas
+ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+5basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on mkirk.pdf (4 pages, 84255 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 44 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

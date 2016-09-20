@@ -39,6 +39,8 @@ TODO: INSERT EXPORT.
 
 In this graphic if you input "ABC...VWX" you will overflow the character array of 12 characters into the pointer for *bar. This will be 4 bytes wide assuming we're on a 32 bit architecture (otherwise it's 8 bytes), this then overflows to the current stack pointer (another 4 bytes), and then finally to the return address (4 bytes). A malicious attacker could utilize this to change the return address just by inputing an address in the last 4 bytes of our input string.
 
+So we could potentially inject something like "system('sh')" or something else using a shellcode disassembled from some assembly code calling syscalls or execve.
+
 \subsection{Heap Buffer Overflow}
 
 https://cwe.mitre.org/data/definitions/122.html
@@ -51,4 +53,50 @@ int main(int argc, char **argv) {
   strcpy(buf, argv[1]);
 }
 \end{lstlisting}
+
+\section{Exploiting Buffer Overflow}
+
+For this we were tasked with exploiting sort.c with stack protection off. The goal of this was to build a return-to-libc attack via overflowed input from data.txt.
+
+I was able to do this by first figuring out the addresses of system, and /bin/sh and then overflow array[14] into the return address.
+
+Data.txt looks like this:
+
+\begin{verbatim}
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+9061e5b7
+B7e56190b7e56190b7f76a24FFFF
+\end{verbatim}
+
+Which will overflow into the address that starts with B7e5
+
+I have verified that this indeed works as shown on the next page:
+
+\includegraphics[width=\linewidth]{./screenshot.png}
+
+\section{Open Question}
+
+Control flow integrity and code diversification both have benefits to securing code but also downsides.
+
+Code diversification like ASLR can be an effective way to prevent return-to-libc or reuse attacks but also can be worked around. For instance in the "On the Effectiveness of Address-Space Randomization" they pointed out that you could just overwhelm the address space easily on a 32 bit processor. They said that it would take a bit longer but still is possible (within a few minutes). Considering that code is just located at different addresses this makes sense. You could effectively overflow the addresses and start rewriting addresses that way that aren't in a random fashion. 
+
+Control flow integrity shows up as many different mitigation strategies like stack canaries, shadow stacks, code-pointer separation, code-pointer integrity, and more. The general idea though is to have some sort of verification that the flow of the code is the way it should be. For instance stack canaries are a way of verifying by inserting randomized integers to determine whether the stack was compromised or not. The downside to control flow integrity is that it can be compromised. For instance in the "Control Flow Bending" paper you can leave the "integrity" in tact but still be bending the address space to change what is being executed. They also point out that it is very difficult to determine what is actually fully in integrity or not.
+
 \end{document}
+
